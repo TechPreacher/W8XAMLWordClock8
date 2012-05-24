@@ -1,0 +1,7 @@
+﻿This project has been created for demo purposes by sascha@corti.com (@TechPreacher).
+
+Word Clock 8 is a XAML based Windows 8 Metro style app that shows the current time in words.
+
+Known issues:
+- When the system is put to sleep while the time is showing, after waking up, the old highlighted strings are not properly cleared.
+- No Icons / Graphical assets have been created yet.
