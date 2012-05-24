@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+
+  <Identity Name="75614cc4-31c8-4f86-83d4-63e995c04974"
+            Publisher="CN=Sascha"
+            Version="1.0.0.0" />
+
+  <Properties>
+    <DisplayName>Word Clock 8</DisplayName>
+    <PublisherDisplayName>Sascha</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+    <Description>Word Clock 8</Description>
+  </Properties>
+
+  <Prerequisites>
+    <OSMinVersion>6.2</OSMinVersion>
+    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+  </Prerequisites>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+        Executable="$targetnametoken$.exe"
+        EntryPoint="Word_Clock_8.App">
+        <VisualElements
+            DisplayName="Word Clock 8"
+            Logo="Assets\Logo.png"
+            SmallLogo="Assets\SmallLogo.png"
+            Description="Word Clock 8"
+            ForegroundText="light"
+            BackgroundColor="#222222">
+            <DefaultTile ShowName="allLogos" />
+            <SplashScreen Image="Assets\SplashScreen.png" />
+        </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

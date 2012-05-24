@@ -1,0 +1,243 @@
+﻿<Page
+    x:Class="Word_Clock_8.WordClockPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Word_Clock_8"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    
+    <Page.Resources>
+
+        <ControlTemplate x:Key="buttonTemplateClock" TargetType="Button">
+            <Viewbox>
+                <Grid x:Name="gridCharacter"
+                    Height="100" 
+                    Width="100">
+                    <Rectangle x:Name="rectMetro" Margin="5, 5, 5, 5" Fill="{TemplateBinding Background}" />
+                    <ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Margin="16,0,0,2" />
+                </Grid>
+            </Viewbox>
+        </ControlTemplate>
+
+        <Style x:Key="buttonStyleClock" TargetType="Button">
+            <Setter Property="Foreground" Value="#FF666666"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="FontFamily" Value="Segoe Light"/>
+        </Style>
+
+        <Storyboard x:Name="anim_fadein">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="gridCharacters">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        
+    </Page.Resources>
+
+    <Grid x:Name="gridMain" Background="{StaticResource ApplicationPageBackgroundBrush}">
+
+        <Grid x:Name="gridCharacters" Opacity="0" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Row 1 -->
+            <Button x:Name="itis_1" Content="I" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="0" />
+            <Button x:Name="itis_2" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="1" />
+
+            <Button Content="A" Template="{StaticResource buttonTemplateClock}"  Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="2" />
+
+            <Button x:Name="itis_3" Content="I" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="3" />
+            <Button x:Name="itis_4" Content="S" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="4" />
+
+            <Button Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="5" />
+            <Button Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="6" />
+            <Button Content="C" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="7" />
+            <Button Content="H" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="8" />
+            <Button Content="P" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="9" />
+            <Button Content="R" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="0" Grid.Column="10" />
+
+            <!-- Row 2 -->
+            <Button x:Name="min_a_1" Content="A" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="0" />
+
+            <Button Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="1" />
+
+            <Button x:Name="min_quarter_1" Content="Q" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="2" />
+            <Button x:Name="min_quarter_2" Content="U" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="3" />
+            <Button x:Name="min_quarter_3" Content="A" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="4" />
+            <Button x:Name="min_quarter_4" Content="R" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="5" />
+            <Button x:Name="min_quarter_5" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="6" />
+            <Button x:Name="min_quarter_6" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="7" />
+            <Button x:Name="min_quarter_7" Content="R" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="8" />
+
+            <Button Content="A" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="9" />
+            <Button Content="C" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="1" Grid.Column="10" />
+
+            <!-- Row 3 -->
+            <Button x:Name="min_twenty_1" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="0" />
+            <Button x:Name="min_twenty_2" Content="W" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="1" />
+            <Button x:Name="min_twenty_3" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="2" />
+            <Button x:Name="min_twenty_4" Content="N" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="3" />
+            <Button x:Name="min_twenty_5" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="4" />
+            <Button x:Name="min_twenty_6" Content="Y" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="5" />
+
+            <Button x:Name="min_five_1" Content="F" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="6" />
+            <Button x:Name="min_five_2" Content="I" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="7" />
+            <Button x:Name="min_five_3" Content="V" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="8" />
+            <Button x:Name="min_five_4" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="9" />
+
+            <Button Content="H" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="2" Grid.Column="10" />
+
+            <!-- Row 4 -->
+            <Button x:Name="min_half_1" Content="H" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="0" />
+            <Button x:Name="min_half_2" Content="A" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="1" />
+            <Button x:Name="min_half_3" Content="L" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="2" />
+            <Button x:Name="min_half_4" Content="F" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="3" />
+
+            <Button Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="4" />
+
+            <Button x:Name="min_ten_1" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="5" />
+            <Button x:Name="min_ten_2" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="6" />
+            <Button x:Name="min_ten_3" Content="N" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="7" />
+
+            <Button Content="R" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="8" />
+
+            <Button x:Name="min_to_1" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="9" />
+            <Button x:Name="min_to_2" Content="O" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="3" Grid.Column="10" />
+
+            <!-- Row 5 -->
+            <Button x:Name="min_past_1" Content="P" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="0" />
+            <Button x:Name="min_past_2" Content="A" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="1" />
+            <Button x:Name="min_past_3" Content="S" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="2" />
+            <Button x:Name="min_past_4" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="3" />
+
+            <Button Content="S" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="4" />
+            <Button Content="A" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="5" />
+            <Button Content="C" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="6" />
+
+            <Button x:Name="hour_nine_1" Content="N" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="7" />
+            <Button x:Name="hour_nine_2" Content="I" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="8" />
+            <Button x:Name="hour_nine_3" Content="N" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="9" />
+            <Button x:Name="hour_nine_4" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="4" Grid.Column="10" />
+
+            <!-- Row 6 -->
+            <Button x:Name="hour_one_1" Content="O" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="0" />
+            <Button x:Name="hour_one_2" Content="N" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="1" />
+            <Button x:Name="hour_one_3" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="2" />
+
+            <Button x:Name="hour_ten_1" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="3" />
+            <Button x:Name="hour_ten_2" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="4" />
+            <Button x:Name="hour_ten_3" Content="N" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="5" />
+
+            <Button x:Name="hour_three_1" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="6" />
+            <Button x:Name="hour_three_2" Content="H" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="7" />
+            <Button x:Name="hour_three_3" Content="R" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="8" />
+            <Button x:Name="hour_three_4" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="9" />
+            <Button x:Name="hour_three_5" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="5" Grid.Column="10" />
+
+            <!-- Row 7 -->
+            <Button x:Name="hour_four_1" Content="F" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="0" />
+            <Button x:Name="hour_four_2" Content="O" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="1" />
+            <Button x:Name="hour_four_3" Content="U" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="2" />
+            <Button x:Name="hour_four_4" Content="R" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="3" />
+
+            <Button x:Name="hour_five_1" Content="F" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="4" />
+            <Button x:Name="hour_five_2" Content="I" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="5" />
+            <Button x:Name="hour_five_3" Content="V" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="6" />
+            <Button x:Name="hour_five_4" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="7" />
+
+            <Button x:Name="hour_two_1" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="8" />
+            <Button x:Name="hour_two_2" Content="W" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="9" />
+            <Button x:Name="hour_two_3" Content="O" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="6" Grid.Column="10" />
+
+            <!-- Row 8 -->
+            <Button x:Name="hour_eight_1" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="0" />
+            <Button x:Name="hour_eight_2" Content="I" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="1" />
+            <Button x:Name="hour_eight_3" Content="G" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="2" />
+            <Button x:Name="hour_eight_4" Content="H" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="3" />
+            <Button x:Name="hour_eight_5" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="4" />
+
+            <Button x:Name="hour_twelve_1" Content="T" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="5" />
+            <Button x:Name="hour_twelve_2" Content="W" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="6" />
+            <Button x:Name="hour_twelve_3" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="7" />
+            <Button x:Name="hour_twelve_4" Content="L" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="8" />
+            <Button x:Name="hour_twelve_5" Content="V" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="9" />
+            <Button x:Name="hour_twelve_6" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="7" Grid.Column="10" />
+
+            <!-- Row 9 -->
+            <Button x:Name="hour_seven_1" Content="S" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="0" />
+            <Button x:Name="hour_seven_2" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="1" />
+            <Button x:Name="hour_seven_3" Content="V" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="2" />
+            <Button x:Name="hour_seven_4" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="3" />
+            <Button x:Name="hour_seven_5" Content="N" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="4" />
+
+            <Button x:Name="hour_eleven_1" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="5" />
+            <Button x:Name="hour_eleven_2" Content="L" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="6" />
+            <Button x:Name="hour_eleven_3" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="7" />
+            <Button x:Name="hour_eleven_4" Content="V" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="8" />
+            <Button x:Name="hour_eleven_5" Content="E" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="9" />
+            <Button x:Name="hour_eleven_6" Content="N" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="8" Grid.Column="10" />
+
+            <!-- Row 10 -->
+            <Button x:Name="hour_six_1" Content="S" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="0" />
+            <Button x:Name="hour_six_2" Content="I" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="1" />
+            <Button x:Name="hour_six_3" Content="X" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="2" />
+
+            <Button Content="A" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="3" />
+            <Button Content="F" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="4" />
+
+            <Button x:Name="oclock_1" Content="O'" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="5" />
+            <Button x:Name="oclock_2" Content="C" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="6" />
+            <Button x:Name="oclock_3" Content="L" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="7" />
+            <Button x:Name="oclock_4" Content="O" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="8" />
+            <Button x:Name="oclock_5" Content="C" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="9" />
+            <Button x:Name="oclock_6" Content="K" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="9" Grid.Column="10" />
+
+            <Button x:Name="dummy" Content="" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Row="10" Grid.Column="0" />
+
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="11" Grid.ColumnSpan="11">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="dot_1" Content="." Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Column="0" />
+                <Button x:Name="dot_2" Content="." Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Column="1" />
+                <Button x:Name="dot_3" Content="." Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Column="2" />
+                <Button x:Name="dot_4" Content="." Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Column="3" />
+
+            </Grid>
+        </Grid>
+    
+	</Grid>
+</Page>
