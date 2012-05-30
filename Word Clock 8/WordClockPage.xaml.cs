@@ -44,6 +44,9 @@ namespace Word_Clock_8
         Color colTextActive = Color.FromArgb(0xFF, 0xFF, 0xFF, 0xFF);
         Color colTextInactive= Color.FromArgb(0xFF, 0x66, 0x66, 0x66);
 
+        string sPreviousHour = "";
+        string sPreviousMins = "";
+
         DispatcherTimer timer = new DispatcherTimer();
 
         public WordClockPage()
@@ -92,108 +95,84 @@ namespace Word_Clock_8
             Anim_itis(1);
 
             // Display hour.
-            string[] sHour = { "", "" };
+            string sHour = "";
 
             if (((iHour == 0 || iHour == 12) && iMin > 34) || ((iHour == 1 || iHour == 13) && iMin <= 34))
-                sHour = new string[] { "twelve", "one" };
+                sHour = "one";
 
             else if (((iHour == 1 || iHour == 13) && iMin > 34) || ((iHour == 2 || iHour == 14) && iMin <= 34))
-                sHour = new string[] { "one", "two" };
+                sHour = "two";
 
             else if (((iHour == 2 || iHour == 14) && iMin > 34) || ((iHour == 3 || iHour == 15) && iMin <= 34))
-                sHour = new string[] { "two", "three" };
+                sHour = "three";
 
             else if (((iHour == 3 || iHour == 15) && iMin > 34) || ((iHour == 4 || iHour == 16) && iMin <= 34))
-                sHour = new string[] { "three", "four" };
+                sHour = "four";
 
             else if (((iHour == 4 || iHour == 16) && iMin > 34) || ((iHour == 5 || iHour == 17) && iMin <= 34))
-                sHour = new string[] { "four", "five" };
+                sHour = "five";
 
             else if (((iHour == 5 || iHour == 17) && iMin > 34) || ((iHour == 6 || iHour == 18) && iMin <= 34))
-                sHour = new string[] { "five", "six" };
+                sHour = "six";
 
             else if (((iHour == 6 || iHour == 18) && iMin > 34) || ((iHour == 7 || iHour == 19) && iMin <= 34))
-                sHour = new string[] { "six", "seven" };
+                sHour = "seven";
 
             else if (((iHour == 7 || iHour == 19) && iMin > 34) || ((iHour == 8 || iHour == 20) && iMin <= 34))
-                sHour = new string[] { "seven", "eight" };
+                sHour = "eight";
 
             else if (((iHour == 8 || iHour == 20) && iMin > 34) || ((iHour == 9 || iHour == 21) && iMin <= 34))
-                sHour = new string[] { "eight", "nine" };
+                sHour = "nine";
 
             else if (((iHour == 9 || iHour == 21) && iMin > 34) || ((iHour == 10 || iHour == 22) && iMin <= 34))
-                sHour = new string[] { "nine", "ten" };
+                sHour = "ten";
 
             else if (((iHour == 10 || iHour == 22) && iMin > 34) || ((iHour == 11 || iHour == 23) && iMin <= 34))
-                sHour = new string[] { "ten", "eleven" };
+                sHour = "eleven";
 
             else if (((iHour == 11 || iHour == 23) && iMin > 34) || ((iHour == 0 || iHour == 12) && iMin <= 34))
-                sHour = new string[] { "eleven", "twelve" };
+                sHour = "twelve";
 
-            Anim_hour(sHour[0], 0);
-            Anim_hour(sHour[1], 1);
+            if (sPreviousHour != sHour && sPreviousHour != "")
+                Anim_hour(sPreviousHour, 0);
+
+            Anim_hour(sHour, 1);
+            sPreviousHour = sHour;
+
 
             // Display minutes.
+            string sMins = "";
+
             if (iMin >= 00 && iMin <= 04)
-            {
-                Fiveto(0);
-                // Would show zero.
-            }
+                sMins = "zero";
             else if (iMin >= 05 && iMin <= 09)
-            {
-                // Would hide zero.
-                Fivepast(1);
-            }
+                sMins = "fivepast";
             else if (iMin >= 10 && iMin <= 14)
-            {
-                Fivepast(0);
-                Tenpast(1);
-            }
+                sMins = "tenpast";
             else if (iMin >= 15 && iMin <= 19)
-            {
-                Tenpast(0);
-                Quarterpast(1);
-            }
+                sMins = "quarterpast";
             else if (iMin >= 20 && iMin <= 24)
-            {
-                Quarterpast(0);
-                Twentypast(1);
-            }
+                sMins = "twentypast";
             else if (iMin >= 25 && iMin <= 29)
-            {
-                Twentypast(0);
-                Twentyfivepast(1);
-            }
+                sMins = "twentyfivepast";
             else if (iMin >= 30 && iMin <= 34)
-            {
-                Twentyfivepast(0);
-                Halfpast(1);
-            }
+                sMins = "halfpast";
             else if (iMin >= 35 && iMin <= 39)
-            {
-                Halfpast(0);
-                Twentyfiveto(1);
-            }
+                sMins = "twentyfiveto";
             else if (iMin >= 40 && iMin <= 44)
-            {
-                Twentyfiveto(0);
-                Twentyto(1);
-            }
+                sMins = "twentyto";
             else if (iMin >= 45 && iMin <= 49)
-            {
-                Twentyto(0);
-                Quarterto(1);
-            }
+                sMins = "quarterto";
             else if (iMin >= 50 && iMin <= 54)
-            {
-                Quarterto(0);
-                Tento(1);
-            }
+                sMins = "tento";
             else if (iMin >= 55 && iMin <= 59)
-            {
-                Tento(0);
-                Fiveto(1);
-            }
+                sMins = "fiveto";
+
+            if (sPreviousMins != sMins && sPreviousMins != "")
+                Anim_minutes(sPreviousMins, 0);
+
+            Anim_minutes(sMins, 1);
+            sPreviousMins = sMins;
 
             // Display "O'CLOCK"
             Anim_oclock(1);
@@ -201,41 +180,99 @@ namespace Word_Clock_8
             // Display Dots.
             if (iMin == 0 || iMin == 5 || iMin == 10 || iMin == 15 || iMin == 20 || iMin == 25 || iMin == 30 || iMin == 35 || iMin == 40 || iMin == 45 || iMin == 50 || iMin == 55)
             {
-                Anim_dot(1, 0);
-                Anim_dot(2, 0);
-                Anim_dot(3, 0);
-                Anim_dot(4, 0);
+                Anim_dot(1, 0); Anim_dot(2, 0); Anim_dot(3, 0); Anim_dot(4, 0);
             }
 
             if (iMin == 1 || iMin == 6 || iMin == 11 || iMin == 16 || iMin == 21 || iMin == 26 || iMin == 31 || iMin == 36 || iMin == 41 || iMin == 46 || iMin == 51 || iMin == 56)
             {
-                Anim_dot(1, 1);
+                Anim_dot(1, 1); Anim_dot(2, 0); Anim_dot(3, 0); Anim_dot(4, 0);
             }
 
             if (iMin == 2 || iMin == 7 || iMin == 12 || iMin == 17 || iMin == 22 || iMin == 27 || iMin == 32 || iMin == 37 || iMin == 42 || iMin == 47 || iMin == 52 || iMin == 57)
             {
-                Anim_dot(1, 1);
-                Anim_dot(2, 1);
+                Anim_dot(1, 1); Anim_dot(2, 1); Anim_dot(3, 0); Anim_dot(4, 0);
             }
 
             if (iMin == 3 || iMin == 8 || iMin == 13 || iMin == 18 || iMin == 23 || iMin == 28 || iMin == 33 || iMin == 38 || iMin == 43 || iMin == 48 || iMin == 53 || iMin == 58)
             {
-                Anim_dot(1, 1);
-                Anim_dot(2, 1);
-                Anim_dot(3, 1);
+                Anim_dot(1, 1); Anim_dot(2, 1); Anim_dot(3, 1); Anim_dot(4, 0);
             }
 
             if (iMin == 4 || iMin == 9 || iMin == 14 || iMin == 19 || iMin == 24 || iMin == 29 || iMin == 34 || iMin == 39 || iMin == 44 || iMin == 49 || iMin == 54 || iMin == 59)
             {
-                Anim_dot(1, 1);
-                Anim_dot(2, 1);
-                Anim_dot(3, 1);
-                Anim_dot(4, 1);
+                Anim_dot(1, 1); Anim_dot(2, 1); Anim_dot(3, 1); Anim_dot(4, 1);
             }
         }
-
-
-
+        
+        // Get proper minute animations
+        void Anim_minutes(string minutes, int state)
+        {
+            if (minutes == "zero")
+            {
+                // do nothing. Would show or hide "zero".
+            }
+            else if (minutes == "fivepast")
+            {
+                Anim_minute("five", state);
+                Anim_minute("past", state);
+            }
+            else if (minutes == "tenpast")
+            {
+                Anim_minute("ten", state);
+                Anim_minute("past", state);
+            }
+            else if (minutes == "quarterpast")
+            {
+                Anim_minute("a", state);
+                Anim_minute("quarter", state);
+                Anim_minute("past", state);
+            }
+            else if (minutes == "twentypast")
+            {
+                Anim_minute("twenty", state);
+                Anim_minute("past", state);
+            }
+            else if (minutes == "twentyfivepast")
+            {
+                Anim_minute("twenty", state);
+                Anim_minute("five", state);
+                Anim_minute("past", state);
+            }
+            else if (minutes == "halfpast")
+            {
+                Anim_minute("half", state);
+                Anim_minute("past", state);
+            }
+            else if (minutes == "twentyfiveto")
+            {
+                Anim_minute("twenty", state);
+                Anim_minute("five", state);
+                Anim_minute("to", state);
+            }
+            else if (minutes == "twentyto")
+            {
+                Anim_minute("twenty", state);
+                Anim_minute("to", state);
+            }
+            else if (minutes == "quarterto")
+            {
+                Anim_minute("a", state);
+                Anim_minute("quarter", state);
+                Anim_minute("to", state);
+            }
+            else if (minutes == "tento")
+            {
+                Anim_minute("ten", state);
+                Anim_minute("to", state);
+            }
+            else if (minutes == "fiveto")
+            {
+                Anim_minute("five", state);
+                Anim_minute("to", state);
+            }
+        }
+        
+        // Trigger the actual animations
         void Anim_itis(int state)
         {
             for (int i = 1; i <= 4; i++)
@@ -270,95 +307,25 @@ namespace Word_Clock_8
         {
             Letter_Animate("dot_" + number, state);
         }
-
-
-
-        void Fivepast(int status)
-        {
-            Anim_minute("five", status);
-            Anim_minute("past", status);
-        }
-
-        void Tenpast(int status)
-        {
-            Anim_minute("ten", status);
-            Anim_minute("past", status);
-        }
-
-        void Quarterpast(int status)
-        {
-            Anim_minute("a", status);
-            Anim_minute("quarter", status);
-            Anim_minute("past", status);
-        }
-
-        void Twentypast(int status)
-        {
-            Anim_minute("twenty", status);
-            Anim_minute("past", status);
-        }
-
-        void Twentyfivepast(int status)
-        {
-            Anim_minute("twenty", status);
-            Anim_minute("five", status);
-            Anim_minute("past", status);
-        }
-
-        void Halfpast(int status)
-        {
-            Anim_minute("half", status);
-            Anim_minute("past", status);
-        }
-
-        void Twentyfiveto(int status)
-        {
-            Anim_minute("twenty", status);
-            Anim_minute("five", status);
-            Anim_minute("to", status);
-        }
-
-        void Twentyto(int status)
-        {
-            Anim_minute("twenty", status);
-            Anim_minute("to", status);
-        }
-
-        void Quarterto(int status)
-        {
-            Anim_minute("a", status);
-            Anim_minute("quarter", status);
-            Anim_minute("to", status);
-        }
-
-        void Tento(int status)
-        {
-            Anim_minute("ten", status);
-            Anim_minute("to", status);
-        }
-
-        void Fiveto(int status)
-        {
-            Anim_minute("five", status);
-            Anim_minute("to", status);
-        }
-
-
-
-
+                
+        // Animation code
         public void Letter_Animate(string controlName, int state)
         {
             Button targetButton = (Button)this.FindName(controlName);
 
-            Color colText = colTextInactive;
+            Color colText;
             if (state == 1)
                 colText = colTextActive;
+            else
+                colText = colTextInactive;
 
-            Color colBackground = colPageBackground;
+            Color colBackground;
             if (state == 1)
                 colBackground = colAccent;
+            else
+                colBackground = colPageBackground;
 
-
+            // Animate Foreground Color
 
             LinearColorKeyFrame keyFrameCol = new LinearColorKeyFrame();
             keyFrameCol.Value = colText;
@@ -370,7 +337,7 @@ namespace Word_Clock_8
             Storyboard.SetTargetProperty(animColor, "(TextElement.Foreground).(SolidColorBrush.Color)");
             Storyboard.SetTarget(animColor, targetButton);
 
-
+            // Animate Background Color
 
             LinearColorKeyFrame keyFrameColBG = new LinearColorKeyFrame();
             keyFrameColBG.Value = colBackground;
@@ -382,7 +349,7 @@ namespace Word_Clock_8
             Storyboard.SetTargetProperty(animColorBG, "(Control.Background).(SolidColorBrush.Color)");
             Storyboard.SetTarget(animColorBG, targetButton);
 
-
+            // Play the Animation
 
             Storyboard story = new Storyboard();
             story.Children.Add(animColor);
