@@ -15,7 +15,7 @@
                     Height="100" 
                     Width="100">
                     <Rectangle x:Name="rectMetro" Margin="5, 5, 5, 5" Fill="{TemplateBinding Background}" />
-                    <ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Margin="16,0,0,2" />
+                    <ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Margin="16,0,0,4" />
                 </Grid>
             </Viewbox>
         </ControlTemplate>
@@ -23,6 +23,12 @@
         <Style x:Key="buttonStyleClock" TargetType="Button">
             <Setter Property="Foreground" Value="#FF666666"/>
             <Setter Property="FontSize" Value="40"/>
+            <Setter Property="FontFamily" Value="Segoe Light"/>
+        </Style>
+
+		<Style x:Key="buttonStyleDots" TargetType="Button">
+            <Setter Property="Foreground" Value="#FF666666"/>
+            <Setter Property="FontSize" Value="26"/>
             <Setter Property="FontFamily" Value="Segoe Light"/>
         </Style>
 
@@ -37,7 +43,7 @@
 
     <Grid x:Name="gridMain" Background="{StaticResource ApplicationPageBackgroundBrush}">
 
-        <Grid x:Name="gridCharacters" Opacity="0" VerticalAlignment="Center" HorizontalAlignment="Center" >
+        <Grid x:Name="gridCharacters" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0" >
             
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
@@ -225,16 +231,18 @@
 
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="11" Grid.ColumnSpan="11">
                 <Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="dot_1" Content="." Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Column="0" />
-                <Button x:Name="dot_2" Content="." Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Column="1" />
-                <Button x:Name="dot_3" Content="." Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Column="2" />
-                <Button x:Name="dot_4" Content="." Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleClock}" Grid.Column="3" />
+				<Button x:Name="plus" Content="plus" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleDots}" Grid.Column="0" />
+                <Button x:Name="dot_1" Content="one" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleDots}" Grid.Column="1" />
+                <Button x:Name="dot_2" Content="two" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleDots}" Grid.Column="2" />
+                <Button x:Name="dot_3" Content="three" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleDots}" Grid.Column="3" />
+                <Button x:Name="dot_4" Content="four" Template="{StaticResource buttonTemplateClock}" Style="{StaticResource buttonStyleDots}" Grid.Column="4" />
 
             </Grid>
         </Grid>
