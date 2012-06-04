@@ -40,9 +40,9 @@ namespace Word_Clock_8
     {
 
         Color colAccent = Color.FromArgb(0xFF, 0xFF, 0x00, 0x00);
-        Color colPageBackground = ((SolidColorBrush)Application.Current.Resources["ApplicationPageBackgroundBrush"]).Color;
+        Color colPageBackground = ((SolidColorBrush)Application.Current.Resources["ApplicationPageBackgroundThemeBrush"]).Color;
         Color colTextActive = Color.FromArgb(0xFF, 0xFF, 0xFF, 0xFF);
-        Color colTextInactive= Color.FromArgb(0xFF, 0x66, 0x66, 0x66);
+        Color colTextInactive = Color.FromArgb(0xFF, 0x66, 0x66, 0x66);
 
         string sPreviousHour = "";
         string sPreviousMins = "";
@@ -203,7 +203,7 @@ namespace Word_Clock_8
                 Anim_dot(1, 1); Anim_dot(2, 1); Anim_dot(3, 1); Anim_dot(4, 1);
             }
         }
-        
+
         // Get proper minute animations
         void Anim_minutes(string minutes, int state)
         {
@@ -271,7 +271,7 @@ namespace Word_Clock_8
                 Anim_minute("to", state);
             }
         }
-        
+
         // Trigger the actual animations
         void Anim_itis(int state)
         {
@@ -307,7 +307,7 @@ namespace Word_Clock_8
         {
             Letter_Animate("dot_" + number, state);
         }
-                
+
         // Animation code
         public void Letter_Animate(string controlName, int state)
         {
@@ -332,7 +332,7 @@ namespace Word_Clock_8
             keyFrameCol.KeyTime = KeyTime.FromTimeSpan(new TimeSpan(0, 0, 0, 2, 0));
 
             ColorAnimationUsingKeyFrames animColor = new ColorAnimationUsingKeyFrames();
-            animColor.KeyFrames.Add(keyFrameCol); // 1 second
+            animColor.KeyFrames.Add(keyFrameCol);
 
             Storyboard.SetTargetProperty(animColor, "(TextElement.Foreground).(SolidColorBrush.Color)");
             Storyboard.SetTarget(animColor, targetButton);
@@ -344,7 +344,7 @@ namespace Word_Clock_8
             keyFrameColBG.KeyTime = KeyTime.FromTimeSpan(new TimeSpan(0, 0, 0, 2, 0));
 
             ColorAnimationUsingKeyFrames animColorBG = new ColorAnimationUsingKeyFrames();
-            animColorBG.KeyFrames.Add(keyFrameColBG); // 1 second
+            animColorBG.KeyFrames.Add(keyFrameColBG);
 
             Storyboard.SetTargetProperty(animColorBG, "(Control.Background).(SolidColorBrush.Color)");
             Storyboard.SetTarget(animColorBG, targetButton);
@@ -359,3 +359,4 @@ namespace Word_Clock_8
         }
     }
 }
+

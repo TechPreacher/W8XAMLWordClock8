@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
 
-  <Identity Name="75614cc4-31c8-4f86-83d4-63e995c04974"
-            Publisher="CN=Sascha"
+  <Identity Name="c88dbafd-9c18-4035-bbdc-90fc82e2f29c"
+            Publisher="CN=saschac"
             Version="1.0.0.0" />
 
   <Properties>
     <DisplayName>Word Clock 8</DisplayName>
-    <PublisherDisplayName>Sascha</PublisherDisplayName>
+    <PublisherDisplayName>saschac</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
-    <Description>Word Clock 8</Description>
   </Properties>
 
   <Prerequisites>
-    <OSMinVersion>6.2</OSMinVersion>
-    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+    <OSMinVersion>6.2.0</OSMinVersion>
+    <OSMaxVersionTested>6.2.0</OSMaxVersionTested>
   </Prerequisites>
 
   <Resources>
@@ -31,7 +30,7 @@
             SmallLogo="Assets\SmallLogo.png"
             Description="Word Clock 8"
             ForegroundText="light"
-            BackgroundColor="#222222">
+            BackgroundColor="#464646">
             <DefaultTile ShowName="allLogos" />
             <SplashScreen Image="Assets\SplashScreen.png" />
         </VisualElements>
